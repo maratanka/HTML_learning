@@ -1,0 +1,91 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form id="submit" method="post" action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php"
+			enctype="multipart/form-data">
+		<header>Please Enter Your Details For Our Dating Website!</header><br>
+		<div>
+			<fieldset>
+						<legend>Your face</legend>
+						<label for="uploadImage">Your image:</label>
+						<input id="uploadImage" type="file" name="myPhoto" onchange="PreviewImage();"required>
+						<br>
+						<label for="preview">Image preview:</label>
+						<img id="uploadPreview" style="width: 100px; height: 100px">
+						
+								<script type="text/javascript">
+
+								    function PreviewImage() {
+								        var oFReader = new FileReader();
+								        oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+
+								        oFReader.onload = function (oFREvent) {
+								            document.getElementById("uploadPreview").src = oFREvent.target.result;
+								        };
+								    };
+
+								</script>
+			</fieldset> <br>
+			<fieldset>
+						<legend>Your general details</legend>
+						<label for="firstname">Name:</label>
+						<input type="text" id="firstname" name="firstname" placeholder="Your full name" required></input>
+						<br>
+						<label for="gender">Gender:</label>
+						<input type="radio" id="gender" name="gender" value="male" required>Male</input>
+						<input type="radio" id="gender" name="gender" value="female" required>Female</input>
+						<br>
+						<label for="age">Age:</label>
+						<input type="number" min="0" max="99" step="1" value="18" 
+								id="age" name="age" required>
+						<br>
+						<label for="birthday">Date of birth:</label>
+						<input type="date" id="birthday" name="birthday">
+						<br>
+						<label for="color">Favourite color:</label>
+						<input type="color" id="color" name="color">
+						<br>
+						<label for="country">Which country:</label>
+						<select name="country">
+						<option value="pl">France</option>
+						<option value="pl">Germany</option>
+						<option value="pl">Grece</option>
+						<option value="pl">Italy</option>
+						<option value="pl">Poland</option>
+						<option value="pl">Spain</option>
+						</select>
+						<br>			
+			</fieldset> <br>
+					<fieldset>
+						<legend>Your indicators</legend>
+						<label for="indicators">Height:</label>
+						Short<input type="range" min="0" max="100" value="50">Tall
+						<br>
+						<label for="indicators">Salary:</label>
+						Poor<input type="range" min="0" max="100" value="50">Rich				
+			</fieldset> <br>
+					<fieldset>
+						<legend>Your contact information</legend>
+						<label for="email">Email:</label>
+						<input type="email" name="email" id="email" required>
+						<br>
+						<label for="mobile">Mobile:</label>
+						<input type="tel" name="mobile" id="mobile">
+						<br>
+						<label for="address">Address:</label>
+						<textarea name="address" id="address"></textarea>
+						<br>
+						<label for="method">Method to contact you:</label>
+						<input type="checkbox" id="method" name="method" value="email">Email</input>
+						<input type="checkbox" id="method" name="method" value="whatsapp">Whatsapp</input>
+						<input type="checkbox" id="method" name="method" value="inappchat">In-app chat</input>
+			</fieldset>
+		</div>
+						<input type="submit" id="submit" value="Upload">
+	</form>
+</body>
+</html>
